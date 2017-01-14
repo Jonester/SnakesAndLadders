@@ -7,11 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "InputCollector.h"
+#import "Player.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        NSLog(@"Welcome to Snakes or Ladders. You know the rules.\n\nEnter 'r' or 'roll' to roll the dice. Good luck!");
+        
+        Player *player = [Player new];
+        
+        while (!player.gameOver) {
+            NSString *userInput = [InputCollector collectInput];
+            if([userInput isEqualToString:@"r"] || [userInput isEqualToString:@"roll"]){
+                [player rollDie];
+            }
+        
+        
+        }
     }
     return 0;
 }

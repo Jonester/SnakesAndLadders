@@ -15,8 +15,20 @@
 {
     self = [super init];
     if (self) {
-        _playerArray = [NSMutableArray new];
+        _snakesLaddersDict = @{@(4):@(14),
+                               @(9):@(31),
+                               @(20): @(38),
+                               @(28): @(84),
+                               @(40): @(59),
+                               @(51): @(67),
+                               @(63): @(81),
+                               @(17): @(7),
+                               @(89): @(26),
+                               @(64): @(60),
+                               @(95): @(75),
+                               @(99): @(78)};
         _currentIndex = 0;
+        _playerArray = [NSMutableArray new];
     }
     return self;
 }
@@ -29,8 +41,35 @@
 }
 
 - (void)roll {
+    Player *currentPlayer = [self currentPlayer];
+    NSInteger rollValue = arc4random_uniform(6) + 1;
+    currentPlayer.currentSquare += rollValue;
+    NSNumber *specialSquare = [NSNumber numberWithInteger:currentPlayer.currentSquare];
+    
+    if (currentPlayer.currentSquare >= 100) {
+        NSLog(@"%@ passed square 100. Congratulations!!! You are the champion of the world!!", currentPlayer.name);
+        self.gameOver = YES;
+    } else {
+        
+        if ([[self.snakesLaddersDict objectForKey:specialSquare] integerValue]) {
+            if ([[self.snakesLaddersDict objectForKey:specialSquare] integerValue] > currentPlayer.currentSquare) {
+                currentPlayer.currentSquare = [[self.snakesLaddersDict objectForKey:specialSquare] integerValue];
+                NSLog(@"%@ rolled a %ld, which landed on a ladder. You climbed to square %ld.",currentPlayer.name, rollValue, currentPlayer.currentSquare);
+            } else {
+                currentPlayer.currentSquare = [[self.snakesLaddersDict objectForKey:specialSquare] integerValue];
+                NSLog(@"%@ rolled a %ld, which landed on a snake. You slide down to square %ld", currentPlayer.name, rollValue, currentPlayer.currentSquare);
+            }
+        } else {
+            NSLog(@"%@ rolled a %ld and is now on square %ld", currentPlayer.name, rollValue, currentPlayer.currentSquare);
+        }
+    }
+
     [self currentPlayer];
+    if (self.currentIndex == self.playerArray.count - 1) {
+        self.currentIndex = 0;
+    } else {
     self.currentIndex++;
+    }
 }
 
 - (Player *)currentPlayer {

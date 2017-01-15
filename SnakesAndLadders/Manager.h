@@ -14,8 +14,8 @@
 @property (nonatomic, strong) NSMutableArray *playerArray;
 @property (nonatomic, assign) BOOL gameOver;
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, strong) NSDictionary *snakesLaddersDict;
 
-- (Player *)currentPlayer;
 - (void)createPlayers: (NSInteger)numberOfPlayers;
 - (void)roll;
 

@@ -11,12 +11,11 @@
 
 @interface Player : NSObject
 
-@property (nonatomic, assign) NSInteger currentSquare;
-@property (nonatomic, strong) NSDictionary *snakesLaddersDict;
+
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) Manager *playerManager;
+@property (nonatomic, assign) NSInteger currentSquare;
 
 - (instancetype)initWithName:(NSString *)name;
-- (void)rollDie;
+
 
 @end

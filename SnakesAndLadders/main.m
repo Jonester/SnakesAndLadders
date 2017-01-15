@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
 }
     
         while (!gameManager.gameOver) {
-            NSLog(@"Please roll the dice.");
+            NSLog(@"It's Player %ld's turn. Please roll the dice.", gameManager.currentIndex + 1);
             NSString *userInput = [InputCollector collectInput];
             if([userInput isEqualToString:@"r"] || [userInput isEqualToString:@"roll"]){
                 [gameManager roll];

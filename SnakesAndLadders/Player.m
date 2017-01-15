@@ -7,7 +7,7 @@
 //
 
 #import "Player.h"
-
+#import "Manager.h"
 
 @implementation Player
 
@@ -28,19 +28,27 @@
                                @(64): @(60),
                                @(95): @(75),
                                @(99): @(78)};
-        _gameOver = NO;
+    }
+    return self;
+}
+
+- (instancetype)initWithName:(NSString *)name
+{
+    self = [super init];
+    if (self) {
+        _name = name;
     }
     return self;
 }
 
 -(void)rollDie {
     NSInteger rollValue = arc4random_uniform(6) + 1;
-    self.currentSquare += rollValue;
+    [self.playerManager currentPlayer].currentSquare += rollValue;
     NSNumber *specialSquare = [NSNumber numberWithInteger:self.currentSquare];
     
     if (self.currentSquare >= 100) {
         NSLog(@"You passed square 100. Congratulations!!! You are the champion of the world!!");
-        self.gameOver = YES;
+        self.playerManager.gameOver = YES;
     } else {
     
     if ([[self.snakesLaddersDict objectForKey:specialSquare] integerValue]) {

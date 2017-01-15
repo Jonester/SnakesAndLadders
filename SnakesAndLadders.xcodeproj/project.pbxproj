@@ -10,6 +10,7 @@
 		3C5389FF1E2AB0A9005D2062 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5389FE1E2AB0A9005D2062 /* main.m */; };
 		3C538A071E2AB149005D2062 /* InputCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C538A061E2AB149005D2062 /* InputCollector.m */; };
 		3C538A0A1E2AB2C9005D2062 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C538A091E2AB2C9005D2062 /* Player.m */; };
+		3C538A0D1E2AD5D5005D2062 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C538A0C1E2AD5D5005D2062 /* Manager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		3C538A061E2AB149005D2062 /* InputCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCollector.m; sourceTree = "<group>"; };
 		3C538A081E2AB2C9005D2062 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		3C538A091E2AB2C9005D2062 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		3C538A0B1E2AD5D5005D2062 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
+		3C538A0C1E2AD5D5005D2062 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				3C5389FE1E2AB0A9005D2062 /* main.m */,
+				3C538A0B1E2AD5D5005D2062 /* Manager.h */,
+				3C538A0C1E2AD5D5005D2062 /* Manager.m */,
 				3C538A081E2AB2C9005D2062 /* Player.h */,
 				3C538A091E2AB2C9005D2062 /* Player.m */,
 				3C538A051E2AB149005D2062 /* InputCollector.h */,
@@ -132,6 +137,7 @@
 				3C538A071E2AB149005D2062 /* InputCollector.m in Sources */,
 				3C538A0A1E2AB2C9005D2062 /* Player.m in Sources */,
 				3C5389FF1E2AB0A9005D2062 /* main.m in Sources */,
+				3C538A0D1E2AD5D5005D2062 /* Manager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +264,7 @@
 				3C538A041E2AB0A9005D2062 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

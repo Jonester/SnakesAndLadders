@@ -8,23 +8,34 @@
 
 #import <Foundation/Foundation.h>
 #import "InputCollector.h"
-#import "Player.h"
+#import "Manager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSLog(@"Welcome to Snakes or Ladders. You know the rules.\n\nEnter 'r' or 'roll' to roll the dice. Good luck!");
+        Manager *gameManager = [Manager new];
         
-        Player *player = [Player new];
-        
-        while (!player.gameOver) {
+        while (gameManager.playerArray.count == 0) {
+            
+        NSLog(@"Welcome to Snakes or Ladders. You know the rules.\n\nEnter 'r' or 'roll' to roll the dice. Good luck!\n\nEnter 'quit' at any time to quit the game. \n\nFirst of all, how many players will be playing? (Max: 8)");
+        NSString *playersInput = [InputCollector collectInput];
+            NSInteger numberInput = [playersInput integerValue];
+        if (numberInput) {
+            [gameManager createPlayers:numberInput];
+            gameManager.gameOver = NO;
+        }
+}
+    
+        while (!gameManager.gameOver) {
+            NSLog(@"Please roll the dice.");
             NSString *userInput = [InputCollector collectInput];
             if([userInput isEqualToString:@"r"] || [userInput isEqualToString:@"roll"]){
-                [player rollDie];
+                [gameManager roll];
             }
-        
-        
-        }
+            if ([userInput isEqualToString:@"quit"]) {
+                gameManager.gameOver = YES;
+            }
     }
+}
     return 0;
 }

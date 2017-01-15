@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Manager;
 
 @interface Player : NSObject
 
 @property (nonatomic, assign) NSInteger currentSquare;
 @property (nonatomic, strong) NSDictionary *snakesLaddersDict;
-@property (nonatomic, assign) BOOL gameOver;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) Manager *playerManager;
 
--(void)rollDie;
+- (instancetype)initWithName:(NSString *)name;
+- (void)rollDie;
 
 @end
